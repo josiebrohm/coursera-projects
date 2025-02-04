@@ -8,12 +8,12 @@ public class Dolphin extends Animal implements Swim {
 
     @Override
     public void eatingFood() {
-        System.out.println("Dolphin: I am eating delicious fish");
+        System.out.print("Dolphin: I am eating delicious fish");
     }
 
     @Override
     public void eatingCompleted() {
-        System.out.println("Dolphin: I have eaten fish");
+        System.out.println("I have eaten fish");
     }
 
     public String getColorOfDolphin() {

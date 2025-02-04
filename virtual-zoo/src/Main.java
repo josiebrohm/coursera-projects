@@ -5,6 +5,7 @@ public class Main {
         // animal objects
         Tiger tigerObject = new Tiger();
         Dolphin dolphinObject = new Dolphin();
+        Penguin penguinObject = new Penguin();
 
         // for getting input
         Scanner keyboard = new Scanner(System.in);
@@ -25,8 +26,6 @@ public class Main {
                         menuChoice = animalDetailsManipulationMenu(keyboard, tigerObject);
                         switch (menuChoice) {
                             case 1:
-                                System.out.println("Enter name of animal:");
-                                tigerObject.setNameOfAnimal(keyboard.next());
                                 System.out.println("Enter weight of animal:");
                                 tigerObject.setWeight(keyboard.nextInt());
                                 System.out.println("Enter height of animal:");
@@ -71,8 +70,6 @@ public class Main {
                         menuChoice = animalDetailsManipulationMenu(keyboard, dolphinObject);
                         switch (menuChoice) {
                             case 1:
-                                System.out.println("Enter name of animal:");
-                                dolphinObject.setNameOfAnimal(keyboard.next());
                                 System.out.println("Enter weight of animal:");
                                 dolphinObject.setWeight(keyboard.nextInt());
                                 System.out.println("Enter height of animal:");
@@ -97,6 +94,7 @@ public class Main {
                                 break;
                             case 4:
                                 dolphinObject.eatingFood();
+                                System.out.println(" and ");
                                 dolphinObject.eatingCompleted();
                                 break;
                             default:
@@ -107,7 +105,74 @@ public class Main {
                         continueInnerLoop = keyboard.nextInt();
                     } while(continueInnerLoop == 1);
                     break;
+                case 3:
+                    do {
+                        System.out.println("The animal which is chosen is : " + dolphinObject.getNameOfAnimal());
+                        // get menu choice
+                        menuChoice = animalDetailsManipulationMenu(keyboard, penguinObject);
+                        switch (menuChoice) {
+                            case 1:
+                                System.out.println("Enter weight of animal:");
+                                penguinObject.setWeight(keyboard.nextInt());
+                                System.out.println("Enter height of animal:");
+                                penguinObject.setHeight(keyboard.nextInt());
+                                System.out.println("Enter age of animal:");
+                                penguinObject.setAge(keyboard.nextInt());
+                                System.out.println("Is the animal swimming? (y/n):");
+                                switch (keyboard.next()) {
+                                    case "y":
+                                        penguinObject.setSwimming(true);
+                                        break;
+                                    case "n":
+                                        penguinObject.setSwimming(false);
+                                        break;
+                                    default:
+                                        System.out.println("Invalid response");
+                                        break;
+                                }
 
+                                if (penguinObject.isSwimming()) {
+                                    System.out.println("Enter swimming speed:");
+                                    penguinObject.setSwimSpeed(keyboard.nextInt());
+                                } else {
+                                    System.out.println("Enter walking speed:");
+                                    penguinObject.setWalkSpeed(keyboard.nextInt());
+                                }
+
+                                break;
+                            case 2:
+                                System.out.println("Name: " + penguinObject.getNameOfAnimal());
+                                System.out.println("Weight: " + penguinObject.getWeight());
+                                System.out.println("Height: " + penguinObject.getHeight());
+                                System.out.println("Age: " + penguinObject.getAge());
+                                if (penguinObject.isSwimming()) {
+                                    System.out.println("Movement: swimming");
+                                    System.out.println("Swim speed: " + penguinObject.getSwimSpeed());
+                                } else {
+                                    System.out.println("Movement: walking");
+                                    System.out.println("Walk speed: " + penguinObject.getWalkSpeed());
+                                }
+                                break;
+                            case 3:
+                                if (penguinObject.isSwimming()) {
+                                    penguinObject.swimming();
+                                } else {
+                                    penguinObject.walking();
+                                }
+                                break;
+                            case 4:
+                                penguinObject.eatingFood();
+                                System.out.println(" and ");
+                                penguinObject.eatingCompleted();
+                                break;
+                            default:
+                                System.out.println("Not supported");
+
+                        }
+                        System.out.println("Continue with this animal ? (Enter 1 for yes/ 2 for no):");
+                        continueInnerLoop = keyboard.nextInt();
+                    } while(continueInnerLoop == 1);
+                    break;
                 default:
                     System.out.println("Sorry no such animal available.");
             }
@@ -116,10 +181,6 @@ public class Main {
             continueOuterLoop = keyboard.nextInt();
 
         } while(continueOuterLoop == 1);
-        /** TODO 9: create a class "Penguin" from the "Animal" class **/
-
-        /** TODO 10: integrate the choice to pick a "penguin" in the menu system **/
-
     }
 
     private static int animalChoiceMenu(Scanner keyboard) {
@@ -128,6 +189,7 @@ public class Main {
         System.out.println("******* ZOO ANIMAL choice menu ******");
         System.out.println("1. Tiger");
         System.out.println("2. Dolphin");
+        System.out.println("3. Penguin");
 
         System.out.println("Enter choice of animal:");
         choiceGivenByUser = keyboard.nextInt();
