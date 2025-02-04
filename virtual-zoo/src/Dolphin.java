@@ -8,19 +8,19 @@ public class Dolphin extends Animal implements Swim {
 
     @Override
     public void eatingFood() {
-        System.out.print("Dolphin: I am eating delicious fish");
+        System.out.println("Dolphin: I am eating delicious fish.");
     }
 
     @Override
     public void eatingCompleted() {
-        System.out.println("I have eaten fish");
+        System.out.println("Dolphin: I have eaten fish.");
     }
 
-    public String getColorOfDolphin() {
+    public String getColor() {
         return colorOfDolphin;
     }
 
-    public void setColorOfDolphin(String colorOfDolphin) {
+    public void setColor(String colorOfDolphin) {
         this.colorOfDolphin = colorOfDolphin;
     }
 
@@ -34,6 +34,6 @@ public class Dolphin extends Animal implements Swim {
 
     @Override
     public void swimming() {
-        System.out.println("Dolphin: I am swimming at the speed of " + swimmingSpeed + " nautical miles per hour");
+        System.out.println("Dolphin: I am swimming at the speed " + swimmingSpeed);
     }
 }

@@ -37,7 +37,7 @@ public class Main {
                                 System.out.println("Enter speed:");
                                 tigerObject.setSpeed(keyboard.nextInt());
                                 System.out.println("Enter sound level of roar:");
-                                tigerObject.setSoundLevelOfRoar(keyboard.nextInt());
+                                tigerObject.setSoundLevel(keyboard.nextInt());
                                 break;
                             case 2:
                                 System.out.println("Name: " + tigerObject.getNameOfAnimal());
@@ -46,7 +46,7 @@ public class Main {
                                 System.out.println("Age: " + tigerObject.getAge());
                                 System.out.println("Number of stripes: " + tigerObject.getNumberOfStripes());
                                 System.out.println("Speed: " + tigerObject.getSpeed());
-                                System.out.println("Sound level of roar: " + tigerObject.getSoundLevelOfRoar());
+                                System.out.println("Sound level of roar: " + tigerObject.getSoundLevel());
                                 break;
                             case 3:
                                 tigerObject.walking();
@@ -77,7 +77,7 @@ public class Main {
                                 System.out.println("Enter age of animal:");
                                 dolphinObject.setAge(keyboard.nextInt());
                                 System.out.println("Enter color of dolphin:");
-                                dolphinObject.setColorOfDolphin(keyboard.next());
+                                dolphinObject.setColor(keyboard.next());
                                 System.out.println("Enter swimming speed:");
                                 dolphinObject.setSwimmingSpeed(keyboard.nextInt());
                                 break;
@@ -86,7 +86,7 @@ public class Main {
                                 System.out.println("Weight: " + dolphinObject.getWeight());
                                 System.out.println("Height: " + dolphinObject.getHeight());
                                 System.out.println("Age: " + dolphinObject.getAge());
-                                System.out.println("Color of dolphin: " + dolphinObject.getColorOfDolphin());
+                                System.out.println("Color of dolphin: " + dolphinObject.getColor());
                                 System.out.println("Swimming speed: " + dolphinObject.getSwimmingSpeed());
                                 break;
                             case 3:
@@ -107,7 +107,7 @@ public class Main {
                     break;
                 case 3:
                     do {
-                        System.out.println("The animal which is chosen is : " + dolphinObject.getNameOfAnimal());
+                        System.out.println("The animal which is chosen is : " + penguinObject.getNameOfAnimal());
                         // get menu choice
                         menuChoice = animalDetailsManipulationMenu(keyboard, penguinObject);
                         switch (menuChoice) {
@@ -118,40 +118,20 @@ public class Main {
                                 penguinObject.setHeight(keyboard.nextInt());
                                 System.out.println("Enter age of animal:");
                                 penguinObject.setAge(keyboard.nextInt());
-                                System.out.println("Is the animal swimming? (y/n):");
-                                switch (keyboard.next()) {
-                                    case "y":
-                                        penguinObject.setSwimming(true);
-                                        break;
-                                    case "n":
-                                        penguinObject.setSwimming(false);
-                                        break;
-                                    default:
-                                        System.out.println("Invalid response");
-                                        break;
-                                }
-
-                                if (penguinObject.isSwimming()) {
-                                    System.out.println("Enter swimming speed:");
-                                    penguinObject.setSwimSpeed(keyboard.nextInt());
-                                } else {
-                                    System.out.println("Enter walking speed:");
-                                    penguinObject.setWalkSpeed(keyboard.nextInt());
-                                }
+                                System.out.println("Is the penguin swimming (true/false):");
+                                penguinObject.setSwimming(keyboard.nextBoolean());
+                                System.out.println("Enter the walk speed of the penguin:");
+                                penguinObject.setWalkSpeed(keyboard.nextInt());
+                                System.out.println("Enter the swim speed of the penguin:");
+                                penguinObject.setSwimSpeed(keyboard.nextInt());
 
                                 break;
                             case 2:
-                                System.out.println("Name: " + penguinObject.getNameOfAnimal());
-                                System.out.println("Weight: " + penguinObject.getWeight());
-                                System.out.println("Height: " + penguinObject.getHeight());
                                 System.out.println("Age: " + penguinObject.getAge());
-                                if (penguinObject.isSwimming()) {
-                                    System.out.println("Movement: swimming");
-                                    System.out.println("Swim speed: " + penguinObject.getSwimSpeed());
-                                } else {
-                                    System.out.println("Movement: walking");
-                                    System.out.println("Walk speed: " + penguinObject.getWalkSpeed());
-                                }
+                                System.out.println("Height: " + penguinObject.getHeight());
+                                System.out.println("Weight: " + penguinObject.getWeight());
+                                System.out.println("Walking speed: " + penguinObject.getWalkSpeed());
+                                System.out.println("Swimming speed: " + penguinObject.getSwimSpeed());
                                 break;
                             case 3:
                                 if (penguinObject.isSwimming()) {
@@ -162,8 +142,6 @@ public class Main {
                                 break;
                             case 4:
                                 penguinObject.eatingFood();
-                                System.out.println(" and ");
-                                penguinObject.eatingCompleted();
                                 break;
                             default:
                                 System.out.println("Not supported");
